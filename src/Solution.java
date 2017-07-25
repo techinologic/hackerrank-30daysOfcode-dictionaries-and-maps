@@ -4,24 +4,26 @@ import java.io.*;
 
 class Solution{
     public static void main(String []argh){
+
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();
-        Map<String, String> map = new HashMap<>();
+        Map<String, Integer> map = new HashMap<>();
 
         for(int i = 0; i < n; i++){
             String name = in.next();
             int phone = in.nextInt();
+            in.nextLine();
             // Write code here
-            map.put(name, String.valueOf(phone));
+            map.put(name, phone);
         }
 
         while(in.hasNext()){
-            String s = in.nextLine();
-            if (s.equals("harry")) {
-                break;
+            String s = in.next();
+            if (map.get(s)==null) {
+                System.out.println("Not found");
+            } else {
+                System.out.println(s + "="+ map.get(s));
             }
-            // Write code here
-            System.out.println(map.keySet());
         }
         in.close();
     }
